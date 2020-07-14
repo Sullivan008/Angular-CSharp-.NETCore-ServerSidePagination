@@ -36,13 +36,13 @@ About the application technologies and operation:
 
 ### FrontEnd Application solution structure:
 
-- **./src/Footer**:
+- **./src/app/Footer**:
   - Includes the Footer on the page.
-- **./src/Header**:
+- **./src/app/Header**:
   - Includes the Navigation Bar on the page.
-- **./src/PageNotFound**:
+- **./src/app/PageNotFound**:
   - Contains an item that the application loads if you navigate to the wrong URL.
-- **./src/Dashboard**:
+- **./src/app/Dashboard**:
   - Contains the table of Users (AgGrid) on the page.
   - Includes the Service that implements HTTP Calls on the BackEnd side.
   - Includes ResponseModels for Server Side Responses.
