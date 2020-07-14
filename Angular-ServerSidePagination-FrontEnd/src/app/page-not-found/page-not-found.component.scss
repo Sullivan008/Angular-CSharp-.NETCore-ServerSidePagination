@@ -1,0 +1,14 @@
+div.flex-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+
+  div#page-not-found-info {
+    > div {
+      > h2 {
+        color: #e53935;
+      }
+    }
+  }
+}
