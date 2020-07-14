@@ -18,15 +18,19 @@ namespace Business.Engine.Engines
             _userService = userService ?? throw new ArgumentNullException(nameof(userService));
         }
 
-        public List<UserDto> GetAllUser(UsersFilterParamsDto filterParams)
+        public GetAllUserResponseDto GetAllUser(UsersFilterParamsDto filterParams)
         {
             List<UserDto> users = _userService.GetUsersMockData();
 
-            return users.AsQueryable()
-                        .OrderBy(filterParams.SortModel)
-                        .Skip(filterParams.StartRow)
-                        .Take(filterParams.EndRow)
-                        .ToList();
+            return new GetAllUserResponseDto
+            {
+                Users = users.AsQueryable()
+                    .OrderBy(filterParams.SortModel)
+                    .Skip(filterParams.StartRow)
+                    .Take(filterParams.EndRow)
+                    .ToList(),
+                TotalRecords = users.Count
+            };
         }
     }
 }

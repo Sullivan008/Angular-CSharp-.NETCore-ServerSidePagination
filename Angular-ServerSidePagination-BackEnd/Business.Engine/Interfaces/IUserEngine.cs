@@ -1,11 +1,9 @@
-﻿using System.Collections.Generic;
-using Core.Common.DTOs.UserEngine;
-using Core.Common.DTOs.UserService;
+﻿using Core.Common.DTOs.UserEngine;
 
 namespace Business.Engine.Interfaces
 {
     public interface IUserEngine
     {
-        List<UserDto> GetAllUser(UsersFilterParamsDto filterParams);
+        GetAllUserResponseDto GetAllUser(UsersFilterParamsDto filterParams);
     }
 }

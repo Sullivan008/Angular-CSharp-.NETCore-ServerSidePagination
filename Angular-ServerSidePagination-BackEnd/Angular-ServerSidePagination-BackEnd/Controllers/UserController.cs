@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using Angular_ServerSidePagination_BackEnd.Models.User.RequestModels;
 using Angular_ServerSidePagination_BackEnd.Models.User.ResponseModel;
 using AutoMapper;
 using Business.Engine.Interfaces;
 using Core.Common.DTOs.UserEngine;
-using Core.Common.DTOs.UserService;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Angular_ServerSidePagination_BackEnd.Controllers
@@ -27,12 +25,12 @@ namespace Angular_ServerSidePagination_BackEnd.Controllers
         [HttpPost("GetAllUser")]
         public ActionResult<GetAllUserResponseModel> GetAllUser(UsersFilterRequestModel filter)
         {
-            List<UserDto> users = _userEngine.GetAllUser(_mapper.Map<UsersFilterParamsDto>(filter));
+            GetAllUserResponseDto getAllUserResponse = _userEngine.GetAllUser(_mapper.Map<UsersFilterParamsDto>(filter));
 
             return new GetAllUserResponseModel
             {
-                Users = users,
-                TotalRecords = users.Count
+                Users = getAllUserResponse.Users,
+                TotalRecords = getAllUserResponse.TotalRecords
             };
         }
     }
